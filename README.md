@@ -20,3 +20,15 @@ Ya que es local, no se tiene que preocupar por la base de datos.
 - Ahora, meta cualquier valor y vallase al get otra vez e inténtelo.
 - Si se va a la consola, vera que no es posible ya que su jwt no es valido. 
 - También ahi en la aplicación, vera que sale 404 por el error. 
+
+
+Flujo del proyecto:
+
+El archivo de AuthController define el endpoint para poder ingresar con su usuario y contraseña.
+El LoginRequest es para definir la estructura del JSON al hacer login.
+El LoginResponse es lo que le llegaria al usuario en forma de JSON. 
+El archivo de JwtUtil maneja la generacion de tokens, el sacar el usuario de un token y validar si el token es valido
+El archivo de JwtAuthenticationFilter checa si hay un token y si es valido y si si autentifica el usuario. 
+El archivo de CustomUserDetailsService implementa UserDetailsService y carga un usuario de la base de datos.
+El archivo de SecurityConfig le dice a Spring que endpoints son publicos y cuales no. 
+El archivo de SwaggerConfig basicamnte configura SwaggerUI para que sepa que JWT es necesitado, añade candados y avisa que el login no necesita autenticacion. 
